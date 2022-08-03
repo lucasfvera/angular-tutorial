@@ -18,5 +18,9 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  clearSelection(): void {
+    this.selectedHero = undefined;
+  }
+
   heroes = HEROES;
 }
