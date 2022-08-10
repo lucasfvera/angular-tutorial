@@ -9,6 +9,8 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
+  heroes: Hero[] = [];
+
   constructor(
     private heroService: HeroService,
     private messageService: MessageService
@@ -18,18 +20,18 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  selectedHero?: Hero;
+  // Deprecated methods since we show the details by route (with a link)
+  // We no longer save states in the component to pass it to the detail component
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  // selectedHero?: Hero;
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  // }
 
-  clearSelection(): void {
-    this.selectedHero = undefined;
-  }
-
-  heroes: Hero[] = [];
+  // clearSelection(): void {
+  //   this.selectedHero = undefined;
+  // }
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
