@@ -31,6 +31,10 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
   // This was to pass values through the html selector
   // Since we implemented it with a route, we don't need it anymore
   // @Input() hero?: Hero;
